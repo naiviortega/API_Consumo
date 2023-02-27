@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comments</title>
+	<link href="https://fonts.googleapis.com/css?family=Damion&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+    	$.ajax(
+	    {
+	        url: localStorage.getItem("comments")
+	    }).done(function(res)
+	        {
+	            console.log(res)
+	            $.each(res, function(key,value)
+	            {
+	                $(".card-columns").append(
+	                	"<div class='card border-dark' style='background-color: transparent;'>"
+	                        +"<div class='card-body'>"
+	                            +"<h5 class='card-title card-header bg-transparent border-dark text-center'><b> Nombre: "+value.name+"</b></h5>"
+	                            +"<br>"
+	                            +"<h6 class='card-subtitle mb-2 text-muted text-center'> Email: "+value.email+"</h6>"                          
+	                            +"<div class='card-body text-center'>"
+	                                +value.body
+	                            +"</div>"	                            
+	                        +"</div>"
+	                    +"</div>"
+	                );
+	            })
+	        });
+    </script>
+</head>
+<body style="background-image: url('img/Fondo.jpg'); background-size: cover; background-repeat: no-repeat;">
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+			</div>
+			<div class="col-4">
+				<h1 style="text-align: center; font-family: 'Damion', cursive;">COMENTARIOS</h1>
+			</div>
+			<div class="col-4" style="text-align: right;">
+				<button class="btn btn-dark btn-lg my-1" onclick="location.href='post.html'">Regresar</button>       		
+			</div>
+		</div>        
+    </div>
+	<div class="card-columns" style="font-family: 'Didact Gothic', sans-serif;">
+    </div>
+    <script type="text/javascript" src="js/connection.js"></script>
+</body>
+</html>
